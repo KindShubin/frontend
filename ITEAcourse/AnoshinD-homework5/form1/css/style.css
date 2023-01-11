@@ -1,0 +1,71 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html {
+	font-family: 'Segoe UI';
+	font-size: 11pt;
+}
+.form_item {
+	display: flex;
+	width: 600px;
+	padding: 7px;
+}
+
+label {
+	width: 150px;
+	text-align: right;
+	padding: 5px 10px;
+	align-self:	flex-start;
+}
+
+input, select, textarea {
+	margin: 0 10px;
+	width: 200px;
+	height: 30px;
+	border: 1px solid #9498dd;
+}
+textarea {
+	width: 400px;
+	height: unset;
+	resize: none;
+}
+select {
+	cursor: pointer;
+}
+.class_capcha > input {
+	width: 80px;
+}
+img{
+	margin: 0 10px;
+	width: 150px;
+	height: 50px;
+	border: 1px solid #9498dd;
+}
+a {
+	color: black;
+}
+
+.select_arrow {
+	margin: 6px;
+	display: inline-block;
+	background-color: rgba(119, 122, 186, 0.3);
+	width: 15px;
+	height: 18px;
+	position: relative;
+	left: -34px;
+	border-radius: 2px;
+	pointer-events: none;
+}
+
+.class_submit {
+	width: 90px;
+	height: 23px;
+	border-radius: 5px;
+	border: solid 1px black;
+	-webkit-box-shadow: 2px 4px 8px -2px rgba(4, 4, 4, 0.2);
+	-moz-box-shadow: 2px 4px 8px -2px rgba(4, 4, 4, 0.2);
+	box-shadow: 2px 4px 8px -2px rgba(4, 4, 4, 0.2);
+}
+

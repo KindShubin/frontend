@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<title>HW5-Form1</title>
+</head>
+<body>
+	<div class="container">
+		<form action="https://google.com" method="GET" name="form1">
+			<div class="form_item">
+				<label for="name_id">Твое имя</label>
+				<input type="text" name="name" id="name_id" value="">
+			</div>
+			<div class="form_item">
+				<label for="email_id">Твой email</label>
+				<input type="text" name="email" id="email_id" value="">
+			</div>
+			<div class="form_item">
+				<label for="topic_id">Тема сообщения</label>
+				<select name="topic" id="topic_id">
+					<option value="other" id="select0" selected="selected"></option>
+					<option value="quastion" id="select1">Технический вопрос</option>
+					<option value="jaloba" id="select2">Жалоба</option>
+					<option value="wishes" id="select3">Пожелание</option>
+				</select>
+				<div class="select_arrow"></div>
+			</div>
+			<div class="form_item">
+				<label for="text_id">Текст *</label>
+				<textarea name="text" id="text_id" cols="30" rows="10"></textarea>	
+			</div>
+			<div class="class_capcha form_item">
+				<label for="capcha_area_id">Защита от спама *</label>
+				<input type="text" name="capcha_area" id="capcha_area_id">
+				<img src="./img/capcha1.jpg" alt="capcha">
+				<a href="#">сменить картинку</a>	
+			</div>
+			<div class="form_item">
+				<label></label>
+				<input class="class_submit" type="submit" value="отправить">
+			</div>
+			
+		</form>
+	</div>
+</body>
+</html>
