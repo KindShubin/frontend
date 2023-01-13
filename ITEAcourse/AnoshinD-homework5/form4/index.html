@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>HW5-form4</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<!-- <link rel="stylesheet" href="./assets/fontawesome/css/all.css"> -->
+</head>
+<body>
+	<div class="container">
+		<div class="wrapper">
+			<form class="form4">
+				<header>
+					<span>Login form</span>
+				</header>
+				<div class="form__body">
+					<div class="form4__item">
+						<label for="email_id"><span>E-mail</span></label>
+						<input type="text" name="email" id="email_id" required>
+						<!-- <div class="icon icon_email"><i class="fa-solid fa-user-large"></i></div> -->
+						<div class="icon icon_email"><img src="./assets/user-large-solid.svg" alt=""></div>
+					</div>
+					<div class="form4__item">
+						<label for="pass_id"><span>Password</span></label>
+						<input type="password" name="pass" id="pass_id"required>
+						<!-- <div class="icon icon_pass"><i class="fa-solid fa-lock"></i></div> -->
+						<div class="icon icon_pass"><img src="./assets/lock-solid.svg" alt=""></div>
+					</div>
+					<div class="form4__item_forgpass">
+						<div class="void_div"></div>
+						<a href="#"><span>Forgot password?</span></a>
+					</div>
+					<div class="form4__item_keeplog">
+						<div class="void_div"></div>
+						<div>
+							<input type="checkbox" name="keep_login" id="keep_login_id">
+							<span>Keep me logged in</span>
+						</div>
+					</div>
+				</div>
+				<footer>
+					<div class="void_div"></div>
+					<div class="form4__item_buttons">
+						<button class="btn"><a href="#"><span>Register</span></a></button>
+						<input class="btn" type="submit" name="submit" id="submit_id" value="Log in">
+					</div>
+				</footer>
+			</form>
+		</div>
+	</div>
+	<div class="d1">
+		<div class="d2"></div>
+	</div>
+</body>
+</html>
