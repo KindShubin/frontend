@@ -1,0 +1,224 @@
+*{
+	margin: 0;
+	padding: 0;
+	transition-duration: 0.2s;
+	transition-timing-function: linear;
+}
+html{
+	background-color: #f2f2f2;
+}
+.wrapper{
+	height: 800px;
+	width: 900px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	left: 0;
+	right: 0;
+	margin: auto;
+/*	border: 1px solid black;*/
+}
+.arcticles{
+	height: 600px;
+	width: 250px;
+	position: relative;
+	background-color: white;
+	z-index: 0;
+}
+.header{
+	height: 50px;
+	margin: 0 0 15px;
+	position: relative;
+	background-color: blue;
+}
+.header > strong{
+	text-transform: uppercase;
+	color: white;
+	font-weight: 600;
+	font-size: 20px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%)
+}
+.triangle{
+	height: 0px;
+	width: 0px;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	border-top: 7px solid blue;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-bottom: 7px solid transparent;
+}
+.text{
+	height: 200px;
+	margin: 10px;
+	font-size: 16px;
+}
+.text img{
+	padding: 10px 0 0;
+	width: 1em;
+	height: 1em;
+}
+.price_wrapper{
+	height: 50px;
+	margin: 30px 10px;
+	position: relative;
+	border-top: 1px solid grey;
+	border-bottom: 1px solid grey;
+}
+.price_wrapper > p{
+	color: grey;
+	background-color: white;
+	padding: 0 10px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+}
+.price{
+	position: absolute;
+	font-size: 20px;
+	font-weight: 600;
+	color: grey;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+.price_wrapper_alt{
+	height: 100px;
+	margin: 10px;
+	position: relative;
+	background-color: lightgrey;
+}
+.icon_or_triangle{
+	height: 25px;
+	width: 36px;
+	position: absolute;
+	background-color: blue;
+	color: white;
+	font-weight: 600;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	border-radius: 3px 3px 0 0;
+}
+.triangle_small_bottom{
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 100%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	border-top: 8px solid blue;
+	border-left: 18px solid transparent;
+	border-right: 18px solid transparent;
+	border-bottom: 18px solid transparent;
+}
+.price_wrapper_alt__text{
+	position: absolute;
+	width: 100%;
+	top: 60%;
+	transform: translate(0%, -50%);
+}
+.price_wrapper_alt__text p{
+	font-weight: 600;
+	text-align: center;
+}
+.big{
+	font-size: 24px;
+	font-weight: 600;
+}
+.triangle_big_bottom{
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 100%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	border-top: 30px solid lightgrey;
+	border-left: 115px solid transparent;
+	border-right: 115px solid transparent;
+	border-bottom: 0 solid transparent;
+}
+.triangle_del_corner_left{
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 0;
+	left: 0;
+	border-top: 0px solid transparent;
+	border-left: 10px solid white;
+	border-right: 10px solid transparent;
+	border-bottom: 100px solid transparent;
+}
+.triangle_del_corner_right{
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 0;
+	right: 0;
+	border-top: 0px solid transparent;
+	border-left: 10px solid transparent;
+	border-right: 10px solid white;
+	border-bottom: 100px solid transparent;
+}
+.btn{
+	border: none;
+	background: rgb(135,251,146);
+	background: linear-gradient(180deg, rgba(135,251,146,1) 0%, rgba(50,200,30,1) 100%);
+	height: 40px;
+	width: 100px;
+	border-radius: 5px;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	font-weight: 600;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 40px auto 0;
+	cursor: pointer;
+}
+.arcticles:hover{
+	-webkit-box-shadow: 1px 6px 17px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 1px 6px 17px 0px rgba(0,0,0,0.75);
+	box-shadow: 1px 6px 17px 0px rgba(0,0,0,0.75);
+	height: 620px;
+	width: 270px;
+/*	padding: 20px;*/
+}
+.arcticles:hover > .header{
+	height: 60px;
+	margin: 0 0 15px;
+	background-color: orange;
+}
+.arcticles:hover > .header .triangle{
+	border-top: 7px solid orange;
+}
+.arcticles:hover > .text{
+	margin: 0 20px;
+}
+.arcticles:hover > .price_wrapper{
+	margin: 30px 20px;
+}
+.arcticles:hover > .price_wrapper_alt{
+	margin: 10px 20px;
+}
+.arcticles:hover > .price_wrapper_alt .icon_or_triangle{
+	background-color: red;
+}
+.arcticles:hover > .price_wrapper_alt .triangle_small_bottom{
+	border-top: 8px solid red;
+}
+.arcticles:hover .btn{
+	margin: 40px auto 0;
+}
