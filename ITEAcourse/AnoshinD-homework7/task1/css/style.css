@@ -1,0 +1,72 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-family: Arial;
+	box-sizing: border-box;
+}
+section{
+	height: 100vh;
+	background-color: black;
+}
+.header{
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100vw;
+/*	height: 100px;*/
+	padding: 15px 0;
+	background-color: #444444;
+}
+ul{
+	list-style: none;
+/*	font-weight: 700;*/
+}
+li:not(.lang){
+	cursor: pointer;
+}
+.header__nav{
+	display: flex;
+	width: 70%;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+.header__tab{
+	border-right: 1px solid lightgrey;
+	font-size: 20px;
+	color: lightgrey;
+	padding: 10px 25px;
+}
+
+.header__control{
+	display: flex;
+	width: 25%;
+	flex-wrap: nowrap;
+	justify-content: flex-end;
+}
+.header__control__tab{
+	border-left: 1px solid lightgrey;
+	font-size: 17px;
+	color: lightgrey;
+	padding: 10px 20px;
+}
+a span{
+	text-decoration: none;
+	color: lightgrey;
+}
+.svg_login{
+	width: 18px;
+	transform: rotate(-90deg);
+	filter: invert(99%) sepia(4%) saturate(47%) hue-rotate(156deg) brightness(107%) contrast(65%);
+
+}
+.svg_register{
+	height: 19px;
+	filter: invert(99%) sepia(4%) saturate(47%) hue-rotate(156deg) brightness(107%) contrast(65%);	
+}
+.header__tab:hover{
+	color: limegreen;
+}
+.header__control__tab:not(.lang):hover{
+	color: red;
+}
