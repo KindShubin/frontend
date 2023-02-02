@@ -1,0 +1,264 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: white;
+	font-size: 17px;
+}
+.about{
+	height: 100vh;
+	background: url(../img/bg1.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
+.about__grid{
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(4, 25vh);
+}
+.about__grid>div{
+	position: relative;
+	border: 1px solid rgba(255,255,255,.2);
+}
+.plus{
+	color: white;
+    position: absolute;
+    top: -12px;
+    left: -6px;
+    font-weight: 700;
+    font-size: 20px;
+    opacity: 0.5;
+}
+.about__gridItem:nth-child(2){
+	grid-column: 2;
+	grid-row: 1/4;
+	background: red;
+	z-index: 2;
+}
+
+.teams{
+	height: 100vh;
+	background: url(../img/bg2.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+}
+.teams__grid{
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(4, 25vh);
+}
+.teams__grid>div{
+	position: relative;
+	border: 1px solid rgba(255,255,255,.5);
+}
+.teams__gridItem:nth-child(8){
+	grid-column: 2/6;
+	grid-row: 2/4;
+	background: red;
+	z-index: 2;
+}
+.partners{
+	height: 100vh;
+	background: url(../img/bg3.jpg);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.partners__grid{
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(4, 25vh);
+}
+.partners__grid>div{
+	position: relative;
+	border: 1px solid rgba(255,255,255,.5);
+}
+.contacts{
+	height: 100vh;
+	background: black;
+}
+.contacts__grid{
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(4, 25vh);
+}
+.contacts__grid>div{
+	position: relative;
+	border: 1px solid rgba(255,255,255,.5);
+}
+.contacts__gridItem:nth-child(10){
+	grid-column: 4/6;
+	grid-row: 2/4;
+	background: red;
+	z-index: 2;
+}
+/****************************/
+/**Home Exercise begin here**/
+/****************************/
+.pos_center{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.pos_top_left{
+	position: absolute;
+	top: 5px;
+	left: 10px;
+}
+.pos_top_right{
+	position: absolute;
+	top: 5px;
+	right: 10px;
+}
+.name_title{
+/*	color: white;*/
+	font-family: sans-serif;
+	font-size: 50px;
+	text-transform: uppercase;
+}
+.page{
+	font-family: monospace;
+	font-size: 12px;
+}
+.page_activ{
+	font-weight: 800;
+	border-bottom: 1px solid white;
+}
+.menu_item{
+	background-color: red;
+	cursor: pointer;
+}
+.menu{
+	text-transform: uppercase;
+	margin-left: -10px;
+}
+.menu::after{
+	position: absolute;
+	content: url(../img/svg/bars-staggered-solid.svg);
+	display: inline;
+	height: 17px;
+	width: 17px;
+	padding: 0 10px;
+	filter: invert(100%) sepia(0%) saturate(7491%) hue-rotate(147deg) brightness(105%) contrast(100%);
+}
+.big_text{
+	font-size: 70px;
+	text-transform: uppercase;
+	transform: translate(0, -50%);
+	z-index: 3;
+}
+.cloudItem, .securityItem, .helpItem{
+	backdrop-filter: blur(5px);
+}
+.white_icons {
+	height: 30px;
+	width: 30px;
+	filter: invert(100%) sepia(0%) saturate(7491%) hue-rotate(147deg) brightness(105%) contrast(100%);
+}
+.about__gridItem > div[class="pos_center"]{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.about__gridItem:last-child{
+	display: flex;
+  	align-items: center;
+}
+.one{
+  	font-size: min(20vw, 20vh);
+  	margin: auto;
+  	font-family: monospace;
+
+}
+.teams__gridItem:nth-child(7){
+	display: flex;
+	align-content: center;
+}
+.teams__gridItem .big_text{
+	position: absolute;
+	top: 100%;
+	left: 100%;
+	transform: translate(-50%, -50%);
+	font-size: 70px;
+	text-transform: uppercase;
+	text-align: center;
+	z-index: 3;
+}
+.teams__gridItem:nth-child(8){
+	display: flex;
+}
+.teams__gridItem:nth-child(8) p{
+/*	padding: 40px 20px 0 100px;*/
+position: absolute;
+display: block;
+margin: auto;
+left: 25%;
+right: 7%;
+top: 50%;
+transform: translate(0, -50%) 
+}
+.partners__grid > div > img{
+	height: 50px;
+/*	width: 50px;*/
+}
+.alienware, .dell, .hp{
+	backdrop-filter: blur(10px);
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+.alienware:after{
+	position: absolute;
+	content: url(../img/alienware.png);
+    transform: scale(0.12);
+}
+.contacts{
+	background: url(../img/bg4.jpg);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.contacts__gridItem__text{
+	position: absolute;
+	top: 60%;
+	left: 30%;
+	width: 150%;
+}
+.form{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 20px 40px;
+}
+.block_four_inputs{
+	display: flex;
+	flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    height: 30%;
+    width: 100%;
+/*    padding: 0 40px;*/
+}
+form input{
+	border: none;
+	border-bottom: 1px solid white;
+	background: none;
+}
+.block_four_inputs input{
+	width: 45% ;
+}
+.description{
+	width: 100%;
+}
+.submit{
+	align-self: self-end;
+	border: 1px solid white;
+	padding: 5px;
+}
