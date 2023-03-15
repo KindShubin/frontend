@@ -40,12 +40,14 @@
 	font-style: italic;
 	padding: 10px;
 	border: 1px solid black;
+	position: relative;
 /*	width: max-content;*/
 }
 .taskItem__inputData{
-	width: 500px;
 	padding: 10px;
 	border: 1px solid black;
+	width: max-content;
+	min-width: 500px;
 }
 .taskItem__result{
 	padding: 10px;
@@ -53,10 +55,13 @@
 	width: max-content;
 	min-width: 500px;
 }
-#idForm2 input{
+/*#idForm2 input{
+	width: 40px;
+}*/
+input[type="text"]{
 	width: 40px;
 }
-form > input[type="button"]{
+form > input[value="Go"]{
 	padding: 5px 10px;
 }
 .six_result{
@@ -73,4 +78,12 @@ form > input[type="button"]{
 }
 .hide{
 	display: none;
+}
+
+.test_block{
+	position: absolute;
+	left: 550px;
+	top: -200px;
+	width: 500px;
+	font-style: normal;
 }

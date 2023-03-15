@@ -1,45 +1,51 @@
 //////////////////////////////////////////////////////////////////////////
 /////////////////////////////BEGIN////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
-const task1 = document.getElementById('task1');
-const task2 = document.getElementById('task2');
-const task3 = document.getElementById('task3');
-const task4 = document.getElementById('task4');
-const task5 = document.getElementById('task5');
-const task6 = document.getElementById('task6');
-// Было: task1.addEventListener('click',  preparingTask(firstTask));
+const taskItem1 = document.getElementById('task1');
+const taskItem2 = document.getElementById('task2');
+const taskItem3 = document.getElementById('task3');
+const taskItem4 = document.getElementById('task4');
+const taskItem5 = document.getElementById('task5');
+const taskItem6 = document.getElementById('task6');
+// Было: taskItem1.addEventListener('click',  preparingTask(dataTask1));
 // при передаче функции через аргумент другой функции,
-// в данном случае передача funcFirstTask(firstTask)
-// в функции funcFirstTask теряется контекст. Сбивает на window
+// в данном случае передача preparingTask(dataTask1)
+// в функции dataTask1 теряется контекст. Сбивает на window
 // для сохранения контекста можно использовать bind(<context>)
-// let bindFirstTask = preparingTask.bind(task1);
+// let bindFirstTask = preparingTask.bind(taskItem1);
 // bindFirstTask(<функция>)
-task1.querySelector('#id_task_btn').addEventListener('click', function(){ 
-	const bindFirstTask = preparingTask.bind(task1);
-	bindFirstTask(firstTask);
-	// preparingTask.bind(task1)(firstTask);
+taskItem1.querySelector('.taskItem__btn').addEventListener('click', function(){ 
+	const bindFirstTask = preparingTask.bind(taskItem1);
+	bindFirstTask(dataTask1);
 });
-task2.querySelector('#id_task_btn').addEventListener('click', function(){
-	preparingTask.bind(task2)(secondTask);});
-task3.querySelector('#id_task_btn').addEventListener('click', function(){
-	preparingTaskThree.bind(task3)(thirdTask);});
-task4.querySelector('#id_task_btn').addEventListener('click', function(){
-	preparingTask.bind(task4)(fourthTask);});
-task5.querySelector('#id_task_btn').addEventListener('click', function(){
-	preparingTask.bind(task5)(fifthTask);});
+// taskItem1.querySelector('.taskItem__btn').addEventListener('click', function(){ 
+// 	preparingTask.bind(task1)(dataTask1);
+// });
+taskItem2.querySelector('.taskItem__btn').addEventListener('click', function(){
+	preparingTask.bind(taskItem2)(dataTask2);});
+taskItem3.querySelector('.taskItem__btn').addEventListener('click', function(){
+	preparingTask.bind(taskItem3)(dataTask3);});
+taskItem4.querySelector('.taskItem__btn').addEventListener('click', function(){
+	preparingTask.bind(taskItem4)(dataTask4);});
+taskItem5.querySelector('.taskItem__btn').addEventListener('click', function(){
+	preparingTask.bind(taskItem5)(dataTask5);});
+taskItem6.querySelector('.taskItem__btn').addEventListener('click', function(){
+	preparingTask.bind(taskItem6)(dataTask6);});
+//////////////////////////////////////////////////////////////////////////
+/////////////additional functions and classes for all task////////////////
 //////////////////////////////////////////////////////////////////////////
 // first function for each task. 
 // - hide/unhide Task info;
-// - fill inputs and listen button Go fo processing task data
+// - create DOM for task
 function preparingTask(nextFunc){
-	const output = this.querySelector('.taskItem__output');
-	const btnTask = this.querySelector('button');
-	const submitBtn = output.querySelector('input[type="button"]');
-	const result = output.querySelector('.taskItem__result');
-	output.classList.toggle("hide");
-	submitBtn.addEventListener('click', nextFunc);
-}
+	const dom = new DOMOfTask(this);
+	dom.output.classList.toggle("hide");
+	if(!dom.output.classList.contains("hide")){
+		nextFunc.bind(this)(dom);
+	}
+}	
 //func genarate div "Result:" with input data for each task
+//if there is some arguments, printing it
 function getNewResultDiv(){
 	const result = document.createElement('div');
 	result.classList.add('taskItem__result');
@@ -55,13 +61,11 @@ function getNewResultDiv(){
 	result.appendChild(spanArgs);
 	return result;
 }
-//get tag form whith input data and give back array 
+//give out tag of form whith input data and give back array
 function getDataFromForm(idForm){
+	const allInputsWithoutButton = idForm.querySelectorAll('input:not([type="button"])');
 	const result = [];
-	for(i = 0; i < idForm.length; i++){
-		result.push(idForm.elements[i].value);
-	}
-	// idForm.forEach(element => result.push(element.value));
+	allInputsWithoutButton.forEach(e => result.push(e.value));
 	return result;
 }
 function removeDivElement(element){
@@ -71,6 +75,7 @@ function removeDivElement(element){
 		console.log(error);
 	}
 }
+// generate array with size. Values from -1000 to 1000.
 function generateNumArray(size){
 	let arr = new Array(size);
 	arr.fill(0);
@@ -79,29 +84,26 @@ function generateNumArray(size){
 	return arr;
 }
 class DOMOfTask {
-	constructor(goBtn){
-		this.output = goBtn.parentNode.parentNode.parentNode;
+	constructor(taskItem){
+		this.btnTask = taskItem.getElementsByClassName('taskItem__btn')[0];
+		this.output = taskItem.getElementsByClassName('taskItem__output')[0];
 		this.inputData = this.output.getElementsByClassName('taskItem__inputData')[0];
 		this.form = this.inputData.querySelector('form');
-		this.submitBtn = goBtn;
+		this.submitBtn = this.form.getElementsByClassName('taskItem__inputData__goBtn')[0];
 		this.oldResult = this.output.querySelector('.taskItem__result');
+		this.inputParamArr = getDataFromForm(this.form);//not element. this array of input data
 		removeDivElement(this.oldResult);
-		this.inputParamArr = getDataFromForm(this.form);
 	}
 }
-//////////////////////////////////////////////////////////////////////////
-// создал наследникf от Array и добавил пару методов
-function firstTask(){
-	const dom = new DOMOfTask(this);
-	console.log(dom);
-	arr = generateNumArray(10);
-	dom.inputData.querySelector("div").innerHTML = arr;
-	console.log("arr:"+arr);
+///////////////////////////////TASK1//////////////////////////////////////
+// создал наследника от Array и добавил пару методов
+function task1(dom, array){
+	removeDivElement(dom.output.querySelector('.taskItem__result'));
 	class NewArray extends Array {
-		wtf() { console.log('works!'); }
+		check() { console.log('works!'); }
 		//sqrt - возводит во вторую степень все элементы и отдает результирующий массив
 		sqrt(){
-			arr = new NewArray();
+			const arr = new NewArray();
 			this.forEach(e => arr.push(e*e))
 			return arr;
 		}
@@ -113,7 +115,6 @@ function firstTask(){
 									//массива в которы[] еще остались пустые ячейки
 				const iterator = arr.keys();
 				for (const key of iterator){
-					// console.log("key: " + key + " | arr[key]: " + arr[key]);
 					if (arr[key] == undefined) {
 						arrIndex.push(key);
 					}
@@ -126,10 +127,9 @@ function firstTask(){
 		
 	}
 	let newarr = new NewArray();
-	arr.forEach(e => newarr.push(e));
+	array.forEach(e => newarr.push(e));
 	newarrsqrt = newarr.sqrt();
 	newarrrand = newarr.random();
-	// output.classList.remove("hide");
 	const result = getNewResultDiv();
 	result.innerHTML += "Cоздал наследника NewArray от Array и добавил ему пару методов: sqrt() random()<br>";
 	result.innerHTML += "let newarr = new NewArray();<br>";
@@ -139,163 +139,212 @@ function firstTask(){
 	result.innerHTML += newarrrand + "<br>";
 	dom.output.appendChild(result);
 }
-//////////////////////////////////////////////////////////////////////////
-function secondTask(){
-	const dom = new DOMOfTask(this);
-	console.log(dom);
-	const size = dom.inputParamArr[0];
-	const a = dom.inputParamArr[1];
-	const b = dom.inputParamArr[2];
-	arr = generateNumArray(+size);
-	console.log("a:"+a+" b: "+b+" arr:");
-	console.log(arr);
-	dom.inputData.querySelector("div").innerHTML = arr;
-	
-	const resArr = arr.slice(a,b);
-	console.log(resArr);
+function dataTask1(dom){
+	const generateArr = dom.form.querySelector('input[value="generate"]');
+	dom.form.querySelector('div').innerHTML = '';
+	let array = [];
+	generateArr.addEventListener('click', function(){
+		array=generateNumArray(10);
+		dom.form.querySelector('div').innerHTML = "Initial array:<br>";
+		dom.form.querySelector('div').innerHTML += array;
+	});
+	dom.submitBtn.addEventListener('click', function(){
+		if(array.length == 0){
+			array=generateNumArray(10);
+			dom.form.querySelector('div').innerHTML = "Initial array:<br>";
+			dom.form.querySelector('div').innerHTML += array;
+		}
+		task1(dom, array);
+		});
+}
+///////////////////////////////TASK2//////////////////////////////////////
+function task2(dom, array, size, a, b){
+	removeDivElement(dom.output.querySelector('.taskItem__result'));
+	const resArray = array.slice(a,b);
+	console.log("task2() resArray:");
+	console.log(resArray);
 	const result = getNewResultDiv(size, a, b);
-	result.innerHTML += resArr;
+	result.innerHTML += resArray;
 	dom.output.appendChild(result);
 }
-//////////////////////////////////////////////////////////////////////////
-function thirdTask(arr){
-	console.log("thirdTask()");
-	console.log(this);
-	const dom = new DOMOfTask(this);
-	console.log(dom);
-	console.log("thirdTask() arr:");
-	console.log(arr);
+function dataTask2(dom){
+	dom.form.querySelector('div').innerHTML = "";
+	var array = [];
+	const generateArr = dom.form.querySelector('input[value="generate"]');
+	generateArr.addEventListener('click', function(){
+		dom.inputParamArr = getDataFromForm(dom.form);
+		const size = +dom.inputParamArr[0];
+		array=generateNumArray(size);
+		dom.form.querySelector('div').innerHTML = "Initial array:<br>";
+		dom.form.querySelector('div').innerHTML += array;
+	});
+	dom.submitBtn.addEventListener('click', function(){
+		dom.inputParamArr = getDataFromForm(dom.form);
+		const size = dom.inputParamArr[0];
+		const a = dom.inputParamArr[1];
+		const b = dom.inputParamArr[2];
+		if(array.length == 0 || a<0 || b<1){
+			console.log("array.length:"+array.length+" a:"+a+" b:"+b+" size:"+size);
+			dom.form.querySelector('div').innerHTML = "Fill all inputs!<br>";
+			return;	
+		} else {
+			task2(dom, array, size, a, b);
+		}});
+}
+///////////////////////////////TASK3//////////////////////////////////////
+function task3(dom, arr){
+	removeDivElement(dom.output.querySelector('.taskItem__result'));
 	const result = getNewResultDiv(arr);
-	const sortarr = arr.sort(function(a,b){return a-b;});
-	console.log("thirdTask() sort arr:");
-	console.log(sortarr);
+	const clonearr = [...arr];//клонирую массив т.к. sort() изменяет исходных массив arr
+	//что приводит к ошибке если несколько раз нажать Go
+	const sortarr = clonearr.sort(function(a,b){return a-b;});
 	result.innerHTML += sortarr;
 	dom.output.appendChild(result);
-	return;
 }
-function preparingTaskThree(nextFunc){
-	console.log(this);
-	const output = this.querySelector('.taskItem__output');
-	const form = output.querySelector('form');
-	const btnTask = this.querySelector('button');
-	console.log(btnTask);
-	const submitBtn = output.querySelector('#idForm3__go');
-	console.log(submitBtn);
-	const addBtn = output.querySelector('#idForm3__add');
-	console.log(addBtn);
-	const newElement = output.querySelector('#idForm3__addInput');
-	const genareteCheck = output.querySelector('input[type="checkbox"]');
-	const result = output.querySelector('.taskItem__result');
-	console.log("nextFunc:");
-	console.log(nextFunc);
+
+function dataTask3(dom){
+	const addBtn = dom.output.querySelector('#idForm3__add');
+	const newElement = dom.output.querySelector('#idForm3__addInput');
+	const genareteCheck = dom.output.querySelector('input[type="checkbox"]');
 	let array = [];
-	output.classList.toggle("hide");
-	addBtn.addEventListener('click', function(){
-		console.log("newElement.value:" + newElement.value);
+	dom.form.querySelector('div').innerHTML = "Initial array:<br>";
+	addBtn.addEventListener('click', function(event){
 		if (!newElement.value.isNaN){
 			array.push(+newElement.value);
 		}
-		form.querySelector('div').innerHTML += (+newElement.value + ', ');
-	});
+		dom.form.querySelector('div').innerHTML += (','+ +newElement.value);
+		});
 	genareteCheck.addEventListener('change', function(){
 		if (this.checked){
 			array=generateNumArray(10);
-			console.log("generete arr:");
-			console.log(array);
-			form.querySelector('div').innerHTML = "Initial array:<br>";
-			form.querySelector('div').innerHTML += array;	
+			dom.form.querySelector('div').innerHTML = "Initial array:<br>";
+			dom.form.querySelector('div').innerHTML += array;	
 		} else {
-			array = undefined;
-			form.querySelector('div').innerHTML = "Initial array:<br>";
+			array = [];
+			dom.form.querySelector('div').innerHTML = "Initial array:<br>";
 		}	
+		});
+	dom.submitBtn.addEventListener('click', function(){
+		task3(dom, array);
+		});
+}
+///////////////////////////////TASK4//////////////////////////////////////
+function task4(dom, array, index, newElement){
+	removeDivElement(dom.output.querySelector('.taskItem__result'));
+	const result = getNewResultDiv(array.length, index, newElement, array);
+	array.splice(+index + 1, 0, isNaN(newElement) ? newElement : +newElement);
+	dom.form.querySelector('div').innerHTML = "Initial array:<br>";
+	dom.form.querySelector('div').innerHTML += array;
+	result.innerHTML += array;
+	dom.output.appendChild(result);
+}
+
+function dataTask4(dom){
+	dom.form.querySelector('div').innerHTML = '';
+	const btnGenerate = dom.form.querySelector('input[value=generate]');
+	let array = [];
+	btnGenerate.addEventListener('click', function(){
+		dom.inputParamArr=getDataFromForm(dom.form);
+		const sizeArr = +dom.inputParamArr[0];
+		array = generateNumArray(sizeArr);
+		dom.form.querySelector('div').innerHTML = "Initial array:<br>";
+		dom.form.querySelector('div').innerHTML += array;
 	});
-	// submitBtn.addEventListener('click', nextFunc);
-	submitBtn.addEventListener('click', function(){
-		nextFunc.bind(this)(array)});
+	dom.submitBtn.addEventListener('click', function(){
+		dom.inputParamArr=getDataFromForm(dom.form);
+		const sizeArr = +dom.inputParamArr[0];
+		const indexToInput = dom.inputParamArr[1];
+		const newElement = dom.inputParamArr[2];
+		console.log("sizeArr: %s indexToInput : %s newElement : %s array:", sizeArr, indexToInput, newElement);
+		console.log(array);
+		task4(dom, array, indexToInput, newElement);
+	});
+
 }
-//////////////////////////////////////////////////////////////////////////
-function fourthTask(){
-	const dom = new DOMOfTask(this);
-	const numA = dom.inputParamArr[0];
-	const numB = dom.inputParamArr[1];
-	const result = getNewResultDiv(numA, numB);
-	if (+numA >= +numB) {
-		result.innerHTML += "Error. First number A  must be less then B";
-		dom.output.appendChild(result);
-		return;
-	}
-	const arr = getAllRangeNumbers(numA, numB);
-	const summ = getSummOfArray(arr);
-	const odd = getArrOddNumbers(arr);
-	result.innerHTML += "Summ numbers: "+summ+"<br>";
-	result.innerHTML += "Odd numbers: "+odd;
+
+///////////////////////////////TASK5//////////////////////////////////////
+function task5_at(dom, array){
+	removeDivElement(dom.output.querySelector('.taskItem__result'));
+	const res = array.at(-2);
+	console.log("res:%s\n" , res);
+	const result = getNewResultDiv('at', array, "const res = array.at(-2);");
+	result.innerHTML += "Output: " + res;
 	dom.output.appendChild(result);
-	return;
 }
-function getAllRangeNumbers(numA, numB){
-	let result = [];
-	for(i=+numA + 1; i < +numB; i++){
-		result.push(i);
-	}
-	return result;
-}
-function getSummOfArray(arr){
-	let result = 0;
-	arr.forEach(element => result+=element);
-	return result;
-}
-function getArrOddNumbers(arr){
-	let result = [];
-	arr.forEach(element => element%2 == 0 ? false : result.push(element));
-	return result;
-}
-//////////////////////////////////////////////////////////////////////////
-function fifthTask(){
-	const dom = new DOMOfTask(this);
-	const n = dom.inputParamArr[0];
-	const result = getNewResultDiv(n);
-	if (+n < 1) {
-		result.innerHTML += "Error. Enter value more then 0";
-		dom.output.appendChild(result);
-		return;
-	}
-	const arrFibo = getArrFibo(n);
-	result.innerHTML += "Fibonacci sequence:<br>" + arrFibo;
+function task5_pop(dom, array){
+	removeDivElement(dom.output.querySelector('.taskItem__result'));
+	array.pop();
+	const res = array.pop();
+	console.log("res:%s\n" , res);
+	const result = getNewResultDiv('pop', array, "array.pop(); const res = array.pop();");
+	result.innerHTML += "Output: " + res;
 	dom.output.appendChild(result);
-	return;
 }
-function getArrFibo(n){
-	let result = [0];
-	for(i = 1; i < n; i++){
-		if(i == 1){
-			result.push(1);
+function task5_splice(dom, array){
+	removeDivElement(dom.output.querySelector('.taskItem__result'));
+	console.log("this is splice() func");
+	const res = array.splice(-2, 1);
+	console.log("res:%s\n" , res);
+	const result = getNewResultDiv('splice', array, "const res = array.splice(-2, 1);");
+	result.innerHTML += "Output: " + res;
+	dom.output.appendChild(result);
+}
+function dataTask5(dom){
+	var month = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+	dom.form.querySelector('div').innerHTML = "Initial array:<br>";
+	dom.form.querySelector('div').innerHTML += month;
+	console.log("month:");
+	console.log(month);
+	const radio1 = document.getElementById('radio1');
+	const radio2 = document.getElementById('radio2');
+	const radio3 = document.getElementById('radio3');
+	let nextFunc = task5_at;
+	radio1.addEventListener('change', function(){
+		nextFunc = task5_at;
+		console.log("at() func is selected");
+	});
+	radio2.addEventListener('change', function(){
+		nextFunc = task5_pop;
+		console.log("pop() func is selected");
+	});
+	radio3.addEventListener('change', function(){
+		nextFunc = task5_splice;
+		console.log("splice() func is selected");
+	});
+	dom.submitBtn.addEventListener('click', function(){
+		console.log("dom.submitBtn click");
+		console.log("nextFunc:");
+		console.log(nextFunc);
+		if (nextFunc){
+			nextFunc(dom, [...month]);
 		} else{
-			result.push(+result[i-1] + +result[i-2]);
+			console.log(event);
+			return;
 		}
-	}
-	return result;
+	})
 }
 //////////////////////////////////////////////////////////////////////////
-function sixthTask(){
-	const dom = new DOMOfTask(this);
-	const result = getNewResultDiv();
-	result.classList.add('six_result');
-	for(i = 1; i <= 10; i++){
-		const subdiv = document.createElement('div');
-		subdiv.innerHTML = '<b> '+i+' </b><br>';
-		let row = getMultiplication(i);
-		row.forEach(el => subdiv.innerHTML += el + '<br>');
-		result.appendChild(subdiv);
-	}
+function taskProcess6(dom, data){
+	removeDivElement(dom.output.querySelector('.taskItem__result'));
+	console.log("!taskProcess6! value:" + data);
+	const result = getNewResultDiv(data);
 	dom.output.appendChild(result);
-	return;
+	result.innerHTML += data;
 }
-function getMultiplication(n){
-	let result = [];
-	for(j = 1; j <= 10; j++){
-		result.push(j + " * " + n + " = " + j * n);
-	}
-	return result;
+function dataTask6(dom){
+	console.log("************************************");
+	console.log("!dataTask6!");
+	const dataInput = dom.form.querySelector('input[type="text"]');
+	// const result = getNewResultDiv();
+	// dom.output.appendChild(result)
+	dom.submitBtn.addEventListener('click', function(){
+		console.log("dom.submitBtn click");
+		const dataValue = dataInput.value;
+		console.log("Value:" + dataValue);
+		dom.form.querySelector('div').innerHTML += dataValue;
+		// result.innerHTML += dataValue;
+		taskProcess6(dom, dataValue);
+	});
 }
 
 

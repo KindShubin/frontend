@@ -11,33 +11,35 @@
 		<p>Lesson12 - Массивы</p>
 		<ul class="taskItemsList">
 			<li class="taskItem" id="task1">
-				<button class="taskItem__btn" id="id_task_btn">Task 1</button>
+				<button class="taskItem__btn">Task 1</button>
 				<div class="taskItem__output hide">
 					<div class="taskItem__description"><b>Description: </b>Сделать собственные примеры методов применяемых для массивов.</div>
 					<div class="taskItem__inputData"><b>Input data: </b><br>
 						<form action="" id="idForm1">
-							<div>Initial array:<br></div>
-							<input type="button" value="Go">
+							Generate array:<br><input type="button" value="generate">
+							<div>Initial array:<br></div><br>
+							<input class="taskItem__inputData__goBtn" type="button" value="Go">
 						</form>
 					</div>	
 				</div>
 			</li>
 			<li class="taskItem" id="task2">
-				<button class="taskItem__btn" id="id_task_btn">Task 2</button>
+				<button class="taskItem__btn">Task 2</button>
 				<div class="taskItem__output hide">
 					<div class="taskItem__description"><b>Description: </b>Определить элементы массива и вывести их значения, индексы которых лежит в указанном пределе. Предел вводит пользователь.</div>
 					<div class="taskItem__inputData"><b>Input data: </b><br>
 						<form action="" id="idForm2">
-							<label>Size Array:<input type="text"></label><br>
-							<label>Index A:<input type="text"></label><br>
-							<label>Index B:<input type="text"></label><br>
+							<label>Size Array:<input type="text"></label><input type="button" value="generate"><br>
+							<label>Index A(>):<input type="text"></label><br>
+							<label>Index B(<=):<input type="text"></label><br>
 							<div>Initial array:<br></div>
-							<input type="button" value="Go">
+							<input class="taskItem__inputData__goBtn" type="button" value="Go">
 						</form>
 					</div>	
 				</div>
 			</li>
-			<li class="taskItem" id="task3"><button class="taskItem__btn" id="id_task_btn">Task 3</button>
+			<li class="taskItem" id="task3">
+				<button class="taskItem__btn">Task 3</button>
 				<div class="taskItem__output hide">
 					<div class="taskItem__description"><b>Description: </b>Отсортировать массив на 10 чисел в порядке возростания. Значения принимаются от пользователя. Сортировка осушествляется методом sort().</div>
 					<div class="taskItem__inputData"><b>Input data: </b><br>
@@ -45,33 +47,98 @@
 							<label>genereate all elements:<input type="checkbox"></label><br>
 							<label>add element:<input type="text" id="idForm3__addInput"></label><input type="button" value="add" id="idForm3__add"><br>
 							<div>Initial array:<br></div>
-							<input type="button" value="Go" id="idForm3__go">
+							<input class="taskItem__inputData__goBtn" type="button" value="Go" id="idForm3__go">
 						</form>
 					</div>	
 				</div>
 			</li>
-			<li class="taskItem" id="task4"><button class="taskItem__btn" id="id_task_btn">Task 4</button>
+			<li class="taskItem" id="task4">
+				<button class="taskItem__btn">Task 4</button>
 				<div class="taskItem__output hide">
 					<div class="taskItem__description"><b>Description: </b>Создать программу, выполняющую вставку элемента в массив после элемента, значение которого укажет пользователь.</div>
 					<div class="taskItem__inputData"><b>Input data: </b><br>
 						<form action="" id="idForm4">
-							<label>Digit A:<input type="text"></label><br>
-							<label>Digit B:<input type="text"></label><br>
+							<label>Size Array:<input type="text"></label><input type="button" value="generate"><br>
+							<label>Index:<input type="text"></label><br>
+							<label>New element:<input type="text"></label><br>
 							<div>Initial array:<br></div>
-							<input type="button" value="Go">
+							<input class="taskItem__inputData__goBtn" type="button" value="Go">
 						</form>
 					</div>	
 				</div>
 			</li>
-			<li class="taskItem" id="task5"><button class="taskItem__btn" id="id_task_btn">Task 5</button>
+			<li class="taskItem" id="task5">
+				<button class="taskItem__btn">Task 5</button>
 				<div class="taskItem__output hide">
 					<div class="taskItem__description"><b>Description: </b>Необходимо получить предпоследний элемент из массива month и вывести его на экран. 
     var month = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"] - 3 способами</div>
 					<div class="taskItem__inputData"><b>Input data: </b><br>
 						<form action="" id="idForm5">
-							<label>N value:<input type="text"></label><br>
+							<label>at():<input type="radio" id="radio1"
+           						name="methods" value="at" checked></label><br>
+           					<label>pop():<input type="radio" id="radio2"
+           						name="methods" value="pop"></label><br>
+           					<label>splice():<input type="radio" id="radio3"
+           						name="methods" value="splice"></label><br>
 							<div>Initial array:<br></div>
-							<input type="button" value="Go">
+							<input class="taskItem__inputData__goBtn" type="button" value="Go">
+						</form>
+					</div>	
+				</div>
+			</li>
+			<li class="taskItem" id="task6">
+				<button class="taskItem__btn">Task 6 Problem</button>
+				<div class="taskItem__output hide">
+					<div class="taskItem__description"><b>Description: </b>
+						-------------->
+						<div class="test_block"><p>
+Если открыть таску(в данном случаее 6) Происходит несколько вызовов ивента на кнопку Go. Но при условии если свернуть и развернуть саму таску.<br>
+Порядок действий:<br>
+1. Открываем Task 6 Problem<br>
+2. Вводим в поле Some input значание 1<br>
+3. Нажимаем Go<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- Появляется 1 в поле Input data, которое статичное и не удаляется/создается<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- Появляется созданный блок Result в методе taskProcess6, со значение внутри 1.<br>
+4. Вводим в поле Some input значание 2<br>
+5. Нажимаем Go<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- В блок Input data добавляется 2<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- Старый блок Result удаляется. Появляется созданный блок Result в методе taskProcess6, со значение внутри 2.<br>
+6. Нажимаем Task 6 Problem<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- сворачивается весь блок<br>
+7. Нажимаем Task 6 Problem<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- появляется блок<br>
+8. Вводим в поле Some input значание 3<br>
+9. Нажимаем Go<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;(начинаются stranger things)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- В статическое поле Input data добавляется две 3. В консоли также видно что dom.submitBtn.addEventListener('click', function(){} выполняется 2 раза<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- Блок Result работает корректно, т.к. создается и удаляется в конечном методе taskProcess6. Поэтому появляется созданный блок Result, со значение внутри 3.<br>
+10. Вводим в поле Some input значание 4<br>
+11. Нажимаем Go<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- Тоже самое. В блок Input data добавляется две 4ки. В коносоли видно 2 вызова ивента<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- Блок Result работает корректно. Далее его упоминать не буду.<br>
+12. Нажимаем Task 6 Problem<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- сворачивается весь блок<br>
+13. Нажимаем Task 6 Problem<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- появляется блок<br>
+14. Вводим в поле Some input значание 5<br>
+15. Нажимаем Go<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;(продолжаются stranger things)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- В статическое поле Input data добавляется уже три 5. В консоли также видно что dom.submitBtn.addEventListener('click', function(){} выполняется 3 раза.<br>
+16. Вводим в поле Some input значание 6<br>
+17. Нажимаем Go<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- В статическое поле Input data добавляется три 6.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Получаем следующее:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Initial array:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;123344555666<br>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;и т.д. каждый раз при сворачивании/разворачивании Task 6 Problem ивент dom.submitBtn.addEventListener('click', function(){} срабатывает на 1 раз больше. Этот баг встречал во всех тасках. 6ю таску сделал просто для проверки этого бага<br></p></div>
+						
+					</div>
+					<div class="taskItem__inputData"><b>Input data: </b><br>
+						<form action="" id="idForm5">
+							<label>Some input:<input type="text"></label><br>
+							<div>Initial array:<br></div>
+							<input class="taskItem__inputData__goBtn" type="button" value="Go">
 						</form>
 					</div>	
 				</div>
