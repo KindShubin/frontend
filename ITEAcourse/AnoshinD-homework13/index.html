@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<p>Lesson13 - Functions</p>
+		<ul class="taskItemsList">
+			<li class="taskItem" id="task1">
+				<button class="taskItem__btn">Task 1</button>
+				<div class="taskItem__output hide">
+					<div class="taskItem__description"><b>Description: </b>Создать функцию calculate(operand1, operand2, sign), где operand1 и operand2 — два числа, sign — знак арифметической операции.
+       				Функция должна расчитывать результат операции, исходя из переданного ей знака. 
+      				Функция должна проверять корректность введенных чисел и знака операции.
+       				Все аргументы для функции принять от пользователя.</div>
+					<div class="taskItem__inputData"><b>Input data: </b><br>
+						<form action="" id="idForm1">
+							<label>Operand1<input type="text"></label><br>
+							<label>Operand2<input type="text"></label><br>
+							<label>Sign<input type="text"></label><br>
+							<div></div>
+							<input class="taskItem__inputData__goBtn" type="button" value="Go">
+						</form>
+					</div>	
+				</div>
+			</li>
+			<li class="taskItem" id="task2">
+				<button class="taskItem__btn">Task 2</button>
+				<div class="taskItem__output hide">
+					<div class="taskItem__description"><b>Description: </b>Создать функцию, возводящую число в степень, число и сама степень вводится пользователем</div>
+					<div class="taskItem__inputData"><b>Input data: </b><br>
+						<form action="" id="idForm2">
+							<label>any number:<input type="text"></label><br>
+							<label>exponent:<input type="text"></label><br>
+							<div></div>
+							<input class="taskItem__inputData__goBtn" type="button" value="Go">
+						</form>
+					</div>	
+				</div>
+			</li>
+			<li class="taskItem" id="task3">
+				<button class="taskItem__btn">Task 3</button>
+				<div class="taskItem__output hide">
+					<div class="taskItem__description"><b>Description: </b>Создать игру "Камень-Ножницы-Бумага".
+        			Выбор компьютера определяется строкой:  
+        			"var computerChoice = Math.random();
+        			alert(computerChoice);".
+        			Math.random() выдает произвольное число в промежутке от 0 до 1, на основании этого можно построить принцип выбора решения компьютера.</div>
+					<div class="taskItem__inputData"><b>Input data: </b><br>
+						<form action="" id="idForm3">
+							<div class="game__me_area">
+								<div class="game__ssp_block">You</div>
+								<div class="game__ssp_block stone">✊</div>
+								<div class="game__ssp_block scissors">✌</div>
+								<div class="game__ssp_block paper">🤚</div>
+							</div><br>
+							<div class="game__pc_area">
+								<div class="game__ssp_block">PC</div>
+								<div class="game__ssp_block stone">✊</div>
+								<div class="game__ssp_block scissors">✌</div>
+								<div class="game__ssp_block paper">🤚</div>
+							</div>
+<!-- 							<label>genereate all elements:<input type="checkbox"></label><br>
+							<label>add element:<input type="text" id="idForm3__addInput"></label><input type="button" value="add" id="idForm3__add"><br>
+							<div>Initial array:<br></div> -->
+							<!-- <input class="taskItem__inputData__goBtn" type="button" value="Go" id="idForm3__go"> -->
+						</form>
+					</div>	
+				</div>
+			</li>
+			<li class="taskItem" id="task4">
+				<button class="taskItem__btn">Task 4</button>
+				<div class="taskItem__output hide">
+					<div class="taskItem__description"><b>Description: </b>Напишите функцию, которая возвращает n-е число Фибоначчи. Для решения используйте цикл.</div>
+					<div class="taskItem__inputData"><b>Input data: </b><br>
+						<form action="" id="idForm4">
+							<label>Index n:<input type="text"></label><br>
+							<div></div>
+							<input class="taskItem__inputData__goBtn" type="button" value="Go">
+						</form>
+					</div>	
+				</div>
+			</li>
+			<li class="taskItem" id="task5">
+				<button class="taskItem__btn">Task 5</button>
+				<div class="taskItem__output hide">
+					<div class="taskItem__description"><b>Description: </b>Зробіть так, щоб користувач вводив різний текст для кожної комірки prompt</div>
+					<div class="taskItem__inputData"><b>Input data: </b><br>
+						<form action="" id="idForm5">
+							<label>Col: <input type="text"></label><br>
+							<label>Row: <input type="text"></label><br>
+							<div></div>
+							<input class="taskItem__inputData__goBtn" type="button" value="Go">
+						</form>
+					</div>	
+				</div>
+			</li>
+		</ul>
+	</div>
+	<script src="./js/js.js"></script>
+</body>
+</html>

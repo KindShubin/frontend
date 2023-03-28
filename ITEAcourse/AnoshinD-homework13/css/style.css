@@ -1,0 +1,117 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.container{
+	width: 600px;
+	padding: 50px;
+	text-align: center;
+}
+.taskItemsList{
+	margin-top: 20px;
+}
+.taskItem{
+	list-style: none;
+	display: flex;
+/*	flex-direction: column;*/
+	flex-direction: row;
+	align-items: center;
+	text-align: left;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.taskItem__btn{
+	width: 200px;
+	height: 50px;
+	border: 1px solid lightgray;
+	border-bottom: 1px solid darkgray;
+	background-color: #c361ce;
+	font-size: 20px;
+	font-weight: 700;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.taskItem__output{
+	min-width: 500px;
+}
+.taskItem__description{
+	width: 500px;
+	font-style: italic;
+	padding: 10px;
+	border: 1px solid black;
+	position: relative;
+/*	width: max-content;*/
+}
+.taskItem__inputData{
+	padding: 10px;
+	border: 1px solid black;
+	width: max-content;
+	min-width: 500px;
+}
+.taskItem__result{
+	padding: 10px;
+	border: 1px solid black;
+	width: max-content;
+	min-width: 500px;
+}
+/*#idForm2 input{
+	width: 40px;
+}*/
+input[type="text"]{
+	width: 40px;
+}
+form > input[value="Go"]{
+	padding: 5px 10px;
+}
+.six_result{
+	display: flex;
+}
+.six_result > div{
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+.six_result > div > b{
+	color: red;
+}
+.hide{
+	display: none;
+}
+
+.test_block{
+	position: absolute;
+	left: 550px;
+	top: -200px;
+	width: 500px;
+	font-style: normal;
+}
+.game__me_area{
+	display: flex;
+	flex-direction: row;
+	position: relative;
+}
+.game__pc_area{
+	display: flex;
+	flex-direction: row;
+	position: relative;
+}
+.game__ssp_block{
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+    justify-content: center;
+}
+.game__me_area > div:nth-child(n+2) {
+	cursor: pointer;
+}
+.game__me_area > div:nth-child(n+2):hover {
+	background-color: lightgray;
+	border: 2px solid black;
+}
+.bgGrey{
+	background-color: lightgray;	
+}
