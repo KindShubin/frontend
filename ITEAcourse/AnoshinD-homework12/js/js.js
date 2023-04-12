@@ -394,14 +394,14 @@ function dataTask6(dom, e){
 	console.log("************************************");
 	console.log("!dataTask6!");
 	const dataInput = dom.form.querySelector('input[type="text"]');
-	if(e.target == dataInput)
-	dom.submitBtn.addEventListener('click', function(){
+	if(e.target == dom.submitBtn && dataInput.value){
+	// dom.submitBtn.addEventListener('click', function(){
 		console.log("dom.submitBtn click");
 		const dataValue = dataInput.value;
 		console.log("Value:" + dataValue);
 		dom.form.querySelector('div').innerHTML += dataValue;
 		taskProcess6(dom, dataValue);
-	});
+	};
 }
 function taskProcess6(dom, data){
 	removeElement(dom.output.querySelector('.taskItem__result'));
