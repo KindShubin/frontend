@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.redBg{
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="inp"> <button id="btn"> add element</button>
+	<ul class="list">
+		<li>text</li>
+		<li>text</li>
+		<li>text</li>
+		<li>text</li>
+		<li>text</li>
+	</ul>
+	<button id="getFirstLi">get first li</button>
+	<button id="getLastLi">get last li</button>
+	<button id="getNextLi">get next li</button>
+	<button id="getPrevLi">get previous li</button>
+	<button id="deleteBtn">delete </button>
+	<script>
+		const btn = document.querySelector('#btn');
+		const inp = document.querySelector('#inp');
+		const list = document.querySelector('.list');
+		
+		const firstLiBtn = document.querySelector('#getFirstLi');
+		const lastLiBtn = document.querySelector('#getLastLi');
+		const nextLiBtn = document.querySelector('#getNextLi');
+		const prevLiBtn = document.querySelector('#getPrevLi');
+		const deleteBtn = document.querySelector('#deleteBtn');
+
+
+		btn.addEventListener('click', addElement);
+		firstLiBtn.addEventListener('click', getFirstLi);
+		lastLiBtn.addEventListener('click', getLastLi);
+		nextLiBtn.addEventListener('click', getNextLi);
+		prevLiBtn.addEventListener('click', getPrevLi);
+		deleteBtn.addEventListener('click', removeLi);
+
+		function getLastLi(){
+			// for(i=0;i<list.children.length;i++){
+			// 	list.children[i].classList.remove('redBg');
+			// }
+			
+			// for(var elem of list.children){
+			// 	console.log("elem:");
+			// 	console.log(elem);
+			// }
+			
+			// for(var elem of list.childNodes){
+			// 	console.log("elem:");
+			// 	console.log(elem);
+			// }
+			Array.from(list.children).forEach(element => element.classList.remove('redBg'));
+			list.lastElementChild.classList.add('redBg');
+		}
+
+
+		function getFirstLi(){
+			Array.from(list.children).forEach(element => element.classList.remove('redBg'));
+			list.firstElementChild.classList.add('redBg');
+		}
+
+		function getNextLi(){
+			for (const element of list.children){
+				if (element.classList.contains('redBg')){
+					element.classList.remove('redBg');
+					list.lastElementChild == element ? getFirstLi() : element.nextElementSibling.classList.add('redBg');
+					break;	
+				} 
+			}
+		}
+
+		function getPrevLi(){
+			for (const element of list.children){
+				if (element.classList.contains('redBg')){
+					element.classList.remove('redBg');
+					list.firstElementChild == element ? getLastLi() : element.previousElementSibling.classList.add('redBg');
+					break;	
+				} 
+			}
+		}
+
+		function removeLi(){
+			for(i=0;i<list.children.length;i++){
+				if(list.children[i].classList.contains('redBg')){
+					list.children[i].remove()
+				}
+			}
+		}
+
+		function addElement(){
+			if(inp.value != ''){
+				const li = document.createElement('li');
+				li.innerHTML = inp.value;
+				list.appendChild(li);
+				inp.value = '';
+			}
+			
+		}
+
+
+	</script>
+</body>
+</html>

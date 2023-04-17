@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.blockClass{
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+		}
+		#testId{
+			color: red;
+			font-size: 20px;
+		}
+		.testClass{
+			background: green;
+		}
+		.toggleClass{
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="block" class="blockClass">
+		<div class="childBlock">
+			<span>1</span>
+			<span title="test">2</span>
+		</div>
+		<div class="childBlock">
+			<span>1</span>
+			<span title="test">2</span>
+		</div>
+		<div class="childBlock">
+			<span>1</span>
+			<span title="test">2</span>
+		</div>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			
+		</ul>
+	</div>
+	<div id="block" class="blockClass">
+		<div class="childBlock">
+			<span>1</span>
+			<span title="test">2</span>
+		</div>
+	</div> 
+	<div id="block" class="blockClass">
+		<div class="childBlock">
+			<span>1</span>
+			<span title="test">2</span>
+		</div>
+	</div>  
+	<div class="blockClass"></div>
+	<div class="blockClass"></div>
+	<div class="blockClass"></div>
+	<input type="text" id="inp"> <button id="btn"> add element</button>
+	<ul class="list">
+		<li>text</li>
+		<li>text</li>
+		<li>text</li>
+		<li>text</li>
+		<li>text</li>
+	</ul>
+	<script>
+		const btn = document.querySelector('#btn')
+		const inp = document.querySelector('#inp')//el
+		const blockId = document.getElementById('block');//el
+		const blockClass = document.getElementsByClassName('blockClass'); //arr
+		const tagName = document.getElementsByTagName('div');//arr
+		const blockQuery = document.querySelector('#block>.childBlock span[title="test"]');//el
+		const blockQueryAll = document.querySelectorAll('#block>.childBlock span[title="test"]')//arr
+
+		const blockIdFirstChild = blockId.firstElementChild; //first child
+		const blockIdLastChild = blockId.lastElementChild;//last child
+
+		const list = document.querySelector('.list');
+		const listChildren = list.children // all children
+
+		const nextLi = list.firstElementChild.nextElementSibling // next el
+		const prevLi = list.lastElementChild.previousElementSibling // prev el
+
+		// blockId.innerText += '<b>string</b>'; 
+		blockId.innerHTML += '<b>string</b>';
+
+		const div = document.createElement('div'); //create
+
+
+		div.id = 'testId' // add ID
+		div.classList = 'testClass' // add class
+		div.classList += ' testClass2' // add class
+		div.classList.add('testClass3') //add class
+		div.classList.remove('testClass3');//delete class
+		console.log(div.classList.contains('testClass2')) // check
+
+		inpVal = inp.value// val inp 
+
+
+		div.innerHTML = 'Hello div';
+		blockId.appendChild(div); //append
+
+
+		btn.addEventListener('click', function(){
+			alert(1)
+		});
+		btn.addEventListener('click', function(){
+			alert(2)
+		});
+
+		btn.addEventListener('click', testFunc);
+
+		// btn.onclick = function(){
+		// 	btn.classList.toggle('toggleClass');
+		// }
+
+		// btn.onclick = function(){
+		// 	alert('hello');
+		// }
+
+		function testFunc(){
+			alert(3)
+		}
+
+
+		// for(i=0;i<blockClass.length;i++){
+		// 	blockClass[i].style.background = "red"
+		// }
+	</script>
+</body>
+</html>
