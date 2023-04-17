@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<p>Lesson12 - Массивы</p>
+		<ul class="taskItemsList">
+			<li class="taskItem" id="task1">
+				<button class="taskItem__btn">Task 1</button>
+				<div class="taskItem__output hide">
+					<div class="taskItem__description"><b>Description: </b>Создать объект Point, содержащий два свойства: "x" и "y" — координаты точки, и метод GetQuadrant, вычисляющий,
+						в каком квадранте в декартовой системе координат находится данная точка.
+						Протестируйте данный объект, изменяя значения его координат, и повторно вызавая метод GetQuadrant.</div>
+					<div class="taskItem__inputData"><b>Input data: </b><br>
+						<form action="" id="idForm1">
+							Generate array:<br>
+							<label>Point X<input type="text"></label><br>
+							<label>Point Y<input type="text"></label><br>
+							<div>Initial data:<br></div><br>
+							<input class="taskItem__inputData__goBtn" type="button" value="Go">
+						</form>
+					</div>	
+				</div>
+			</li>
+			<li class="taskItem" id="task2">
+				<button class="taskItem__btn">Task 2</button>
+				<div class="taskItem__output hide">
+					<div class="taskItem__description"><b>Description: </b>Создать объект Calculator, который должен содержать методы для расчета суммы, разности, произведения и частного двух чисел.
+						Протестировать данный объект, принимая от пользователя значения двух операндов и знак операции.
+						В зависимости от принятого знака операции, вызвать соответствующий метод.</div>
+					<div class="taskItem__inputData"><b>Input data: </b><br>
+						<form action="" id="idForm2">
+							<label>Number 1:<input type="text"></label><br>
+							<label>Number 2:<input type="text"></label><br>
+							<label>Sign:<input type="text"></label><br>
+							<div>Initial array:<br></div>
+							<input class="taskItem__inputData__goBtn" type="button" value="Go">
+						</form>
+					</div>	
+				</div>
+			</li>
+			<li class="taskItem" id="task3">
+				<button class="taskItem__btn">Task 3</button>
+				<div class="taskItem__output hide">
+					<div class="taskItem__description"><b>Description: </b>Создать массив, который будет хранить в себе информацию о сотрудниках предприятия. Каждый элемент масива — объект,
+						содержащий свойства: name, sName, age, occupation, и метод show, который выводит всю информацию о пользователе.
+						Реализовать заполнение массива пользователем. По окончанию заполнения — вывести информацию о сотрудниках.</div>
+					<div class="taskItem__inputData"><b>Input data: </b><br>
+						<form action="" id="idForm3">
+							<label>Name:<input type="text"></label><br>
+							<label>Surname:<input type="text"></label><br>
+							<label>Age:<input type="text"></label><br>
+							<label>Occupation:<input type="text"></label><br>
+							<label>Add new employe:<input type="button" value="add"></label><br>
+							<div></div>
+							<input class="taskItem__inputData__goBtn" type="button" value="Go" id="idForm3__go">
+						</form>
+					</div>	
+				</div>
+			</li>
+			<li class="taskItem" id="task4">
+				<button class="taskItem__btn">Task 4</button>
+				<div class="taskItem__output hide">
+					<div class="taskItem__description"><b>Description: </b>Для предыдущего задания создайте функцию, которая будет принимать в себя массив объектов-сотрудников, и каждому из объектов
+						будет добавлять новое свойство "salary", хранящее зарплату сотрудника. 
+						Зарплата расчитывается, исходя из значения свойства "occupation" следующим образом:
+							• "director" — 9000;
+							• "manager" — 1500;
+							• "programmer" — 10000;
+							• для остальных значений — 1000.
+						После выполнения функции — вывести информацию о сотрудниках.</div>
+					<div class="taskItem__inputData"><b>Input data: </b><br>
+						<form action="" id="idForm4">
+							<label>giving objects from 3th task:<input type="button" value="add"></label><br>
+							<div>Initial data:<br></div>
+							<input class="taskItem__inputData__goBtn" type="button" value="Go">
+						</form>
+					</div>	
+				</div>
+			</li>
+			<li class="taskItem" id="task5">
+				<button class="taskItem__btn">Task 5</button>
+				<div class="taskItem__output hide">
+					<div class="taskItem__description"><b>Description: </b>Для задания 3 создать метод, позволяющий отсортировать массив сотрудников по одному из свойств: name, sName, age, occupation, salary.
+						Параметр для сортировки принимается от пользователя.
+						После выполнения функции — вывести информацию о сотрудниках.</div>
+					<div class="taskItem__inputData"><b>Input data: </b><br>
+						<form action="" id="idForm5">
+							<label>giving objects from 3th task:<input type="button" value="add"></label><br>
+							<span>Which sort is using?</span><br>
+							<label>name:<input type="radio" id="radio1"	name="sort" checked></label><br>
+           		<label>sName:<input type="radio" id="radio2" name="sort"></label><br>
+           		<label>age:<input type="radio" id="radio3" name="sort"></label><br>
+							<label>occupation:<input type="radio" id="radio4" name="sort"></label><br>
+							<label>salary:<input type="radio" id="radio5" name="sort"></label><br>
+							<div>Initial data:<br></div>
+							<input class="taskItem__inputData__goBtn" type="button" value="Go">
+						</form>
+					</div>	
+				</div>
+			</li>
+			<li class="taskItem" id="task6">
+				<button class="taskItem__btn">Task 6 Problem</button>
+				<div class="taskItem__output hide">
+					<div class="taskItem__description"><b>Description: </b>
+						-------------->
+						<div class="test_block"><p>
+Если открыть таску(в данном случаее 6) Происходит несколько вызовов ивента на кнопку Go. Но при условии если свернуть и развернуть саму таску.<br>
+Порядок действий:<br>
+1. Открываем Task 6 Problem<br>
+2. Вводим в поле Some input значание 1<br>
+3. Нажимаем Go<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- Появляется 1 в поле Input data, которое статичное и не удаляется/создается<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- Появляется созданный блок Result в методе taskProcess6, со значение внутри 1.<br>
+4. Вводим в поле Some input значание 2<br>
+5. Нажимаем Go<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- В блок Input data добавляется 2<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- Старый блок Result удаляется. Появляется созданный блок Result в методе taskProcess6, со значение внутри 2.<br>
+6. Нажимаем Task 6 Problem<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- сворачивается весь блок<br>
+7. Нажимаем Task 6 Problem<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- появляется блок<br>
+8. Вводим в поле Some input значание 3<br>
+9. Нажимаем Go<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;(начинаются stranger things)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- В статическое поле Input data добавляется две 3. В консоли также видно что dom.submitBtn.addEventListener('click', function(){} выполняется 2 раза<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- Блок Result работает корректно, т.к. создается и удаляется в конечном методе taskProcess6. Поэтому появляется созданный блок Result, со значение внутри 3.<br>
+10. Вводим в поле Some input значание 4<br>
+11. Нажимаем Go<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- Тоже самое. В блок Input data добавляется две 4ки. В коносоли видно 2 вызова ивента<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- Блок Result работает корректно. Далее его упоминать не буду.<br>
+12. Нажимаем Task 6 Problem<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- сворачивается весь блок<br>
+13. Нажимаем Task 6 Problem<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- появляется блок<br>
+14. Вводим в поле Some input значание 5<br>
+15. Нажимаем Go<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;(продолжаются stranger things)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- В статическое поле Input data добавляется уже три 5. В консоли также видно что dom.submitBtn.addEventListener('click', function(){} выполняется 3 раза.<br>
+16. Вводим в поле Some input значание 6<br>
+17. Нажимаем Go<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;- В статическое поле Input data добавляется три 6.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Получаем следующее:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Initial array:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;123344555666<br>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;и т.д. каждый раз при сворачивании/разворачивании Task 6 Problem ивент dom.submitBtn.addEventListener('click', function(){} срабатывает на 1 раз больше. Этот баг встречал во всех тасках. 6ю таску сделал просто для проверки этого бага<br></p></div>
+						
+					</div>
+					<div class="taskItem__inputData"><b>Input data: </b><br>
+						<form action="" id="idForm5">
+							<label>Some input:<input type="text"></label><br>
+							<div>Initial array:<br></div>
+							<input class="taskItem__inputData__goBtn" type="button" value="Go">
+						</form>
+					</div>	
+				</div>
+			</li>
+		</ul>
+	</div>
+	<script src="./js/js.js"></script>
+</body>
+</html>
